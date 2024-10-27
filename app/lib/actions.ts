@@ -58,6 +58,7 @@ export async function createInvoice(prevState: State,formData: FormData) {
         `;
            
     } catch (error) {
+        console.error('Error ocurred:', error);
         return {
             message: 'Database Error: Fail create',
         }
@@ -93,6 +94,7 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
         `;
     
     } catch (error) {
+        console.error('Error ocurred:', error);
         return {
             message: 'Database Error: Fail update',
         }
@@ -107,6 +109,7 @@ export async function deleteInvoice(id: string) {
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;  
     } catch (error) {
+        console.error('Error ocurred:', error);
         return {
             message: 'Database Error: Fail delete',
         }
